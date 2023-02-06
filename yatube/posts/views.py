@@ -7,6 +7,7 @@ def index(request):
     posts = Post.objects.order_by('-pub_date')[:10]
     context = {
         'posts': posts,
+        'title': 'Последние обновления на сайте'
     }
     return render(request, 'posts/index.html', context)
 
@@ -17,5 +18,6 @@ def group_posts(request, slug):
     context = {
         'group': group,
         'posts': posts,
+        'title': 'Записи сообщества ' +  group.title
     }
     return render(request, 'posts/group_list.html', context)
