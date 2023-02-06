@@ -11,19 +11,19 @@
           <li>
             Автор: {{ post.author.first_name }} {{ post.author.last_name }}
           </li>
-          <li> 
+          <li>
             Дата публикации: {{ post.pub_date|date:"d E Y" }}
           </li>
         </ul>
       <p>
         {{ post.text }}
       </p>
-    {% if post.group %}    
+    {% if post.group %}
       <a href="{% url 'posts:group_posts' post.group.slug %}">все записи группы</a>
     {% endif %}
   {% if not forloop.last %}<hr>{% endif %}
     </article>
     {% endfor %}
-  <!-- под последним постом нет линии -->   
+  <!-- под последним постом нет линии -->
   </div>
 {% endblock %}
